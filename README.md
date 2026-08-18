@@ -461,39 +461,28 @@ Potential directions for extending the framework include:
 
 # Project Context
 
-The project explores the use of **agentic retrieval and specialized language models for software development**.
+Me-QT5 is an agentic Retrieval-Augmented Generation framework for software development that integrates retrieval, context filtering, task-complexity evaluation, specialized language models, and coding-agent workflows.
 
-Rather than relying on a single retrieval-and-generation step, Me-QT5 investigates a structured workflow in which context is retrieved, filtered, evaluated, and subsequently provided to a coding agent.
-
-This architecture provides a foundation for experimenting with more focused and task-aware software-development agents.
+The project explores how structured context selection and task-aware processing can improve software-development workflows involving large language models.
 
 ---
 
-# Acknowledgements
+# Future Directions
 
-This repository is based on the **Me-QT5 Agentic Framework for Software Development** project and builds upon its underlying implementation, research direction, datasets, and supporting resources.
+Potential extensions include:
 
-Original project:
-
-https://github.com/HarshSaini10/Agentic_Framework_for_Software_Development
-
-The original authors and contributors are acknowledged for the underlying framework and research work.
-
----
-
-# Attribution
-
-This repository should be viewed as a working copy and extension of the original Me-QT5 project.
-
-Any future modifications or experiments added to this repository should be clearly distinguished from the original implementation.
-
----
-
-# License
-
-Please refer to the original project's licensing terms before redistributing or modifying the implementation.
-
-Where applicable, retain the original attribution and comply with the licensing requirements of the underlying project and its dependencies.
+- Hybrid dense + lexical retrieval
+- Semantic code chunking
+- Cross-encoder reranking
+- Repository-level dependency graphs
+- Long-term conversational memory
+- GitHub-native repository ingestion
+- Retrieval-quality benchmarking
+- Agent trajectory evaluation
+- Latency and cost optimization
+- Multi-agent software-development workflows
+- Human-in-the-loop feedback
+- Improved observability and tracing
 
 ---
 
