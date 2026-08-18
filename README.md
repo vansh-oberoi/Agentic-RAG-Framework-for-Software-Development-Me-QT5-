@@ -1,27 +1,27 @@
 # Agentic RAG Framework for Software Development — Me-QT5
 
-> An agentic Retrieval-Augmented Generation framework for software development that combines context retrieval, context filtering, task-complexity evaluation, and specialized language models to provide coding agents with more relevant and focused information.
+> An agentic Retrieval-Augmented Generation framework for software development that combines context retrieval, context filtering, task-complexity evaluation, specialized language models, and coding-agent workflows.
 
 ---
 
 ## Overview
 
-Modern coding agents can generate and modify software effectively, but their performance is strongly influenced by the quality and relevance of the context provided to them.
+Modern coding agents can generate and modify software effectively, but their performance depends heavily on the quality and relevance of the context provided to them.
 
-Large software repositories contain substantial amounts of information that may be irrelevant to a particular development task. Supplying excessive context can increase computational cost, introduce noise, and make it harder for an agent to identify the information that actually matters.
+Large software repositories contain significant amounts of information, much of which may be irrelevant to a particular development task. Providing excessive or noisy context can increase computational cost and make it more difficult for an agent to identify the information that actually matters.
 
-**Me-QT5** explores an agentic approach to this problem by combining retrieval and specialized language-model components within a software-development workflow.
+**Me-QT5** explores an agentic approach to this problem by integrating retrieval, context filtering, task-complexity evaluation, and specialized language models into a software-development workflow.
 
 The framework focuses on:
 
-* Retrieving potentially relevant software-development context
-* Filtering irrelevant or redundant context
-* Evaluating the complexity of development tasks
-* Providing focused information to downstream coding agents
-* Using specialized T5-based models for task-specific components
-* Evaluating the framework on coding-oriented tasks
+- Retrieving potentially relevant software-development context
+- Filtering irrelevant or redundant context
+- Evaluating the complexity of development tasks
+- Providing focused context to downstream coding agents
+- Using specialized T5-based models for task-specific components
+- Evaluating the framework on coding-oriented tasks
 
-The overall objective is to improve the efficiency and effectiveness of agentic software-development workflows through **retrieval, context selection, and task-aware reasoning**.
+The overall objective is to investigate how **retrieval, context selection, and task-aware reasoning** can support more effective agentic software-development workflows.
 
 ---
 
@@ -29,31 +29,31 @@ The overall objective is to improve the efficiency and effectiveness of agentic 
 
 ### Agentic Retrieval-Augmented Generation
 
-The framework integrates retrieval into an agentic software-development workflow rather than treating RAG as an isolated question-answering component.
+The framework integrates retrieval into an agentic software-development workflow rather than treating RAG as an isolated question-answering system.
 
-Relevant contextual information is retrieved and processed before being supplied to the downstream coding workflow.
+Relevant information is retrieved and processed before being provided to the downstream coding workflow.
 
 ### Context Filtering
 
-A dedicated context-filtering component identifies information that is more relevant to the current software-development task.
+A dedicated context-filtering component processes retrieved information and attempts to identify information that is more relevant to the current software-development task.
 
-This reduces the amount of unnecessary context passed to downstream models.
+This helps reduce unnecessary context passed to downstream models.
 
 ### Task Complexity Evaluation
 
-The framework incorporates a complexity-evaluation component that analyzes software-development tasks and estimates their difficulty.
+Software-development tasks can vary considerably in difficulty.
 
-This provides an additional signal that can be used within the agentic workflow.
+The framework incorporates a complexity-evaluation component that analyzes development tasks and provides a task-complexity signal within the workflow.
 
 ### Specialized T5 Models
 
-The framework uses T5-based language models for specialized components of the system, including context filtering and complexity evaluation.
+The framework uses **T5-based language models** for specialized components of the system, including context filtering and complexity evaluation.
 
-Rather than relying exclusively on a general-purpose LLM for every operation, specialized models are used for targeted subtasks.
+This modular approach allows individual components to be designed for specific subtasks rather than relying exclusively on a single general-purpose model.
 
 ### Coding-Agent Workflow
 
-The individual components are integrated into a broader software-development workflow designed to support coding-agent systems.
+The framework combines retrieval, context processing, task analysis, and generation into a broader workflow intended to support coding-agent systems.
 
 ---
 
@@ -80,7 +80,6 @@ The individual components are integrated into a broader software-development wor
                    ▼                             │
           ┌──────────────────┐                   │
           │ Context Filterer │                   │
-          │                  │                   │
           └────────┬─────────┘                   │
                    │                             │
                    └──────────────┬──────────────┘
@@ -106,7 +105,7 @@ The individual components are integrated into a broader software-development wor
 
 # Why Agentic RAG for Software Development?
 
-Traditional RAG systems generally follow a relatively straightforward pipeline:
+A conventional RAG system generally follows a relatively simple pipeline:
 
 ```text
 Query
@@ -116,18 +115,16 @@ Retrieve Documents
 Generate Answer
 ```
 
-Software development introduces additional challenges.
+Software-development tasks introduce additional challenges. A coding task may require:
 
-A coding task may require:
+- Understanding the task
+- Identifying relevant repository context
+- Distinguishing useful information from irrelevant information
+- Estimating task complexity
+- Supplying the coding model with focused context
+- Generating a solution based on the selected information
 
-* Understanding the task itself
-* Identifying relevant repository context
-* Distinguishing useful information from irrelevant information
-* Estimating task complexity
-* Supplying the coding model with an appropriate context window
-* Generating a solution based on the selected context
-
-Me-QT5 therefore investigates a more structured workflow:
+Me-QT5 therefore explores a more structured workflow:
 
 ```text
 Task
@@ -143,7 +140,7 @@ Reason
 Generate
 ```
 
-This allows retrieval and context management to become explicit components of the software-development agent.
+This makes retrieval and context management explicit components of the software-development agent.
 
 ---
 
@@ -153,46 +150,48 @@ This allows retrieval and context management to become explicit components of th
 
 The retrieval component identifies potentially relevant information for a given software-development task.
 
-The retrieved information acts as the initial context available to subsequent components.
+The retrieved information acts as the initial context available to subsequent components of the workflow.
 
 ---
 
 ## 2. Context Filterer
 
-The context-filtering stage processes retrieved information and attempts to remove information that is less relevant to the current task.
+The context-filtering stage processes retrieved information and attempts to remove or reduce information that is less relevant to the current task.
 
-The goal is to provide the downstream coding agent with a more focused context rather than simply passing all retrieved information forward.
+The objective is to provide the downstream coding agent with a more focused context instead of forwarding all retrieved information.
 
 ---
 
 ## 3. Complexity Evaluator
 
-Software-development tasks can vary significantly in difficulty.
+Software-development tasks differ significantly in their level of difficulty.
 
 The complexity evaluator provides a task-level complexity signal that can be incorporated into the overall agentic workflow.
 
-This enables the framework to distinguish between simpler and more involved development tasks.
+This enables the framework to explicitly consider task complexity during the software-development process.
 
 ---
 
 ## 4. Specialized Language Models
 
-The framework incorporates specialized **T5-based models** for task-specific components.
+The framework incorporates specialized **T5-based language models** for individual components.
 
-T5 provides a flexible text-to-text architecture that can be fine-tuned for specialized NLP tasks.
+These models are used for task-specific functionality such as:
 
-Within the framework, specialized models are used for components such as:
+- Context filtering
+- Complexity evaluation
 
-* Context filtering
-* Complexity evaluation
+Using specialized models allows individual components to be optimized for their respective roles within the overall pipeline.
 
 ---
 
 ## 5. Coding Agent
 
-The final stage of the workflow provides the processed information to a coding-oriented agent capable of using the retrieved and filtered context to address software-development tasks.
+The final stage of the workflow provides the processed information to a coding-oriented agent.
 
-The framework therefore treats retrieval and context selection as supporting components of a larger agentic software-engineering system.
+The coding agent can use the retrieved and filtered context to address software-development tasks.
+
+The framework therefore treats retrieval and context selection as supporting components of a larger agentic software-engineering workflow.
 
 ---
 
@@ -200,40 +199,40 @@ The framework therefore treats retrieval and context selection as supporting com
 
 The project includes a curated dataset designed around software-development and coding-agent tasks.
 
-The dataset is used to support experimentation and evaluation of the framework's specialized components and overall workflow.
+The dataset provides resources for experimentation and evaluation of the framework and its specialized components.
 
-The repository contains the associated data and supporting resources required to reproduce the experiments described by the project.
+The repository contains the associated dataset archive and supporting project resources.
 
 ---
 
 # Model Training
 
-Specialized T5-based models are trained for individual components of the framework rather than using one model for every task.
+The framework includes specialized T5-based models for individual components of the system.
 
-The project includes resources associated with:
+The project contains resources associated with:
 
-* Context filtering
-* Complexity evaluation
-* Model training
-* Model evaluation
+- Context filtering
+- Complexity evaluation
+- Model training
+- Model evaluation
 
-This modular approach allows each component to be optimized for its specific role within the agentic pipeline.
+This modular approach allows individual components to be developed and evaluated independently within the overall agentic pipeline.
 
 ---
 
 # Evaluation
 
-The framework is evaluated using software-development-oriented tasks and datasets.
+The framework is evaluated using software-development-oriented tasks and associated project resources.
 
-Evaluation focuses on the effectiveness of the individual components and their role within the overall agentic workflow.
+Evaluation considers the effectiveness of the framework components and their role within the overall agentic workflow.
 
-The repository contains the relevant experimental resources, reports, and evaluation material.
+Detailed experimental methodology and results are provided in the project report included in the repository.
 
-> Detailed experimental results and methodology are available in the project report included in this repository.
+> Specific quantitative results are intentionally not reproduced here unless they are directly verified from the corresponding experimental materials.
 
 ---
 
-## Repository Structure
+# Repository Structure
 
 ```text
 Agentic_Framework_for_Software_Development/
@@ -270,21 +269,22 @@ Agentic_Framework_for_Software_Development/
         ├── sandbox.py              # Sandboxed execution
         ├── variables.py            # Configuration variables
         └── wrapper.py              # Framework integration wrapper
+```
 
 ---
 
 # Technology Stack
 
-| Category             | Technologies                             |
-| -------------------- | ---------------------------------------- |
-| Programming Language | Python                                   |
-| Deep Learning        | PyTorch                                  |
-| NLP                  | Hugging Face Transformers                |
-| Language Models      | T5                                       |
-| AI Architecture      | Agentic RAG                              |
-| Application Domain   | Software Engineering                     |
-| Data Processing      | Python-based tooling                     |
-| Evaluation           | Coding / software-development benchmarks |
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Deep Learning | PyTorch |
+| NLP | Hugging Face Transformers |
+| Language Models | T5 |
+| AI Architecture | Agentic RAG |
+| Application Domain | Software Engineering |
+| Data Processing | Python-based tooling |
+| Evaluation | Coding / software-development benchmarks |
 
 ---
 
@@ -294,11 +294,11 @@ Agentic_Framework_for_Software_Development/
 
 Recommended environment:
 
-* Python 3.x
-* Git
-* PyTorch
-* Hugging Face Transformers
-* Required dependencies listed in the project configuration
+- Python 3.x
+- Git
+- PyTorch
+- Hugging Face Transformers
+- Required dependencies listed in the project configuration
 
 ---
 
@@ -314,7 +314,7 @@ cd Agentic-RAG-Framework-for-Software-Development-Me-QT5
 
 ## Install Dependencies
 
-Create an isolated Python environment:
+Create a virtual environment:
 
 ```bash
 python -m venv .venv
@@ -335,141 +335,165 @@ source .venv/bin/activate
 Install the project dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip install -r Me-QT5/Code/requirements.txt
 ```
 
 ---
 
 # Running the Framework
 
-The repository contains the implementation, model resources, datasets, and supporting scripts required for experimentation.
-
-Refer to the corresponding project directories and scripts for:
+The main implementation is located inside:
 
 ```text
-Model training
-       ↓
-Model evaluation
-       ↓
-Context retrieval
-       ↓
-Context filtering
-       ↓
-Complexity evaluation
-       ↓
-Agentic workflow
-       ↓
-Software-development task
+Me-QT5/Code/
 ```
 
-For exact experiment configuration and reproduction instructions, refer to the accompanying project report and implementation files.
+The project includes scripts and modules for:
+
+- Agent execution
+- Retrieval
+- Context filtering
+- Query decomposition
+- Complexity evaluation
+- Memory management
+- RAG client/server communication
+- Model generation
+- Sandboxed execution
+- User interaction
+
+The project also includes:
+
+- `setup.sh` for environment setup
+- `run.sh` for execution
+- `Dockerfile` for containerized deployment
+
+Refer to the project-specific documentation in `Me-QT5/readme.md` and `Me-QT5/Code/Readme.md` for implementation-specific instructions.
 
 ---
 
-# Research Motivation
+# Workflow
 
-The central motivation behind this project is that **more context does not necessarily mean better context**.
-
-Large language models can process substantial amounts of information, but irrelevant or redundant repository context can negatively affect both efficiency and reasoning quality.
-
-The framework therefore investigates whether an agentic architecture that explicitly performs:
+At a high level, the framework follows:
 
 ```text
-Retrieval
-   +
-Context Selection
-   +
-Task Understanding
-   +
-Generation
+                    Software Development Task
+                              │
+                              ▼
+                       Task Decomposition
+                              │
+                              ▼
+                       Context Retrieval
+                              │
+                              ▼
+                       Context Filtering
+                              │
+                              ▼
+                    Complexity Evaluation
+                              │
+                              ▼
+                       Focused Context
+                              │
+                              ▼
+                         Coding Agent
+                              │
+                              ▼
+                    Generated Solution
 ```
 
-can provide a more effective workflow for software-development agents.
+The modular architecture allows individual stages of the workflow to be analyzed and improved independently.
 
 ---
 
 # Design Principles
 
-### Modularity
+## Modularity
 
-Each major capability is treated as a separate component, allowing individual modules to be trained, evaluated, and improved independently.
+Major capabilities are separated into individual components, allowing them to be developed, evaluated, and modified independently.
 
-### Task-Aware Context
+## Task-Aware Context
 
-The framework prioritizes context that is relevant to the specific software-development task rather than treating all retrieved information equally.
+The framework focuses on providing context relevant to the specific software-development task instead of treating all retrieved information equally.
 
-### Specialized Models
+## Specialized Models
 
-Task-specific models are used where specialized behavior is beneficial instead of relying entirely on a single general-purpose model.
+Task-specific models are used for specialized components such as filtering and complexity evaluation.
 
-### Agentic Workflow
+## Agentic Workflow
 
-The system organizes multiple reasoning and information-processing stages into a coordinated software-development pipeline.
+Multiple information-processing and reasoning stages are coordinated as part of a broader software-development workflow.
 
 ---
 
 # Potential Applications
 
-The architecture can be applied to a variety of software-engineering scenarios, including:
+The architecture can be applied to software-engineering scenarios such as:
 
-* Repository-level code understanding
-* Code generation
-* Code modification
-* Issue resolution
-* Software debugging
-* Developer assistance
-* Repository question answering
-* Context-aware coding agents
-* Automated software-development workflows
+- Repository-level code understanding
+- Code generation
+- Code modification
+- Issue resolution
+- Software debugging
+- Developer assistance
+- Repository question answering
+- Context-aware coding agents
+- Automated software-development workflows
 
 ---
 
 # Future Directions
 
-Potential extensions of the framework include:
+Potential directions for extending the framework include:
 
-* Hybrid dense + lexical retrieval
-* Semantic code chunking
-* Cross-encoder reranking
-* Repository-level dependency graphs
-* Long-term conversational memory
-* GitHub-native repository ingestion
-* Retrieval-quality benchmarking
-* Agent trajectory evaluation
-* Latency and cost optimization
-* Multi-agent software-development workflows
-* Human-in-the-loop feedback
-* Improved observability and tracing
+- Hybrid dense + lexical retrieval
+- Semantic code chunking
+- Cross-encoder reranking
+- Repository-level dependency graphs
+- Long-term conversational memory
+- GitHub-native repository ingestion
+- Retrieval-quality benchmarking
+- Agent trajectory evaluation
+- Latency and cost optimization
+- Multi-agent software-development workflows
+- Human-in-the-loop feedback
+- Improved observability and tracing
 
 ---
 
 # Project Context
 
-This repository is based on the **Me-QT5 Agentic Framework for Software Development** research and implementation.
+The project explores the use of **agentic retrieval and specialized language models for software development**.
 
-The project investigates the integration of retrieval, context filtering, complexity evaluation, and specialized language models into agentic software-development workflows.
+Rather than relying on a single retrieval-and-generation step, Me-QT5 investigates a structured workflow in which context is retrieved, filtered, evaluated, and subsequently provided to a coding agent.
 
-For the original implementation, research methodology, and detailed experimental discussion, refer to the associated project materials and report.
+This architecture provides a foundation for experimenting with more focused and task-aware software-development agents.
 
 ---
 
 # Acknowledgements
 
-This implementation builds upon the original **Me-QT5 Agentic Framework for Software Development** project and its associated research work.
+This repository is based on the **Me-QT5 Agentic Framework for Software Development** project and builds upon its underlying implementation, research direction, datasets, and supporting resources.
 
-The original project can be found at:
+Original project:
 
 https://github.com/HarshSaini10/Agentic_Framework_for_Software_Development
 
-All original authors and contributors are acknowledged for the underlying framework, research direction, datasets, and implementation.
+The original authors and contributors are acknowledged for the underlying framework and research work.
+
+---
+
+# Attribution
+
+This repository should be viewed as a working copy and extension of the original Me-QT5 project.
+
+Any future modifications or experiments added to this repository should be clearly distinguished from the original implementation.
 
 ---
 
 # License
 
-Please refer to the original project's license and repository terms before redistributing or modifying the implementation.
+Please refer to the original project's licensing terms before redistributing or modifying the implementation.
 
-If you extend this project, retain the appropriate attribution and comply with the original license requirements.
+Where applicable, retain the original attribution and comply with the licensing requirements of the underlying project and its dependencies.
 
 ---
 
@@ -477,7 +501,7 @@ If you extend this project, retain the appropriate attribution and comply with t
 
 **Vansh Oberoi**
 
-GitHub:
+GitHub:  
 https://github.com/vansh-oberoi
 
 ---
