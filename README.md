@@ -456,30 +456,6 @@ The system is organized around several cooperating components:
 - **LLM-based Generation** for producing the final development response
 - **Sandboxed Execution** for supporting controlled interaction with generated solutions
 
-The resulting workflow can be viewed as:
-
-Software Development Task
-          │
-          ▼
-   Query Decomposition
-          │
-          ▼
-    Context Retrieval
-          │
-          ▼
-    Context Filtering
-          │
-          ├──────────────► Complexity Evaluation
-          │
-          ▼
-   Focused Task Context
-          │
-          ▼
-      Coding Agent
-          │
-          ▼
-   Generation / Execution
-
 ---
 
 # Future Directions
