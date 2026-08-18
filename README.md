@@ -294,7 +294,7 @@ Agentic_Framework_for_Software_Development/
 
 Recommended environment:
 
-- Python 3.x
+- Python 3.14.7
 - Git
 - PyTorch
 - Hugging Face Transformers
