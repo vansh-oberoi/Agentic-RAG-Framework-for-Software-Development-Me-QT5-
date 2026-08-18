@@ -440,49 +440,71 @@ The architecture can be applied to software-engineering scenarios such as:
 
 ---
 
-# Future Directions
-
-Potential directions for extending the framework include:
-
-- Hybrid dense + lexical retrieval
-- Semantic code chunking
-- Cross-encoder reranking
-- Repository-level dependency graphs
-- Long-term conversational memory
-- GitHub-native repository ingestion
-- Retrieval-quality benchmarking
-- Agent trajectory evaluation
-- Latency and cost optimization
-- Multi-agent software-development workflows
-- Human-in-the-loop feedback
-- Improved observability and tracing
-
----
-
 # Project Context
 
-Me-QT5 is an agentic Retrieval-Augmented Generation framework for software development that integrates retrieval, context filtering, task-complexity evaluation, specialized language models, and coding-agent workflows.
+Me-QT5 is designed as an **agentic software-development framework** that augments coding agents with task-aware retrieval and context management.
 
-The project explores how structured context selection and task-aware processing can improve software-development workflows involving large language models.
+Instead of treating software development as a single prompt-to-code interaction, the framework decomposes a development task, retrieves potentially relevant information, evaluates the task's complexity, filters the retrieved context, and then provides a focused context to the downstream coding workflow.
+
+The system is organized around several cooperating components:
+
+- **Query Decomposition** for breaking a development request into actionable information requirements
+- **RAG-based Retrieval** for locating relevant knowledge and repository context
+- **Context Filtering** for reducing irrelevant information before generation
+- **Complexity Evaluation** for characterizing the difficulty of the development task
+- **Agent Memory and State Management** for maintaining information across the workflow
+- **LLM-based Generation** for producing the final development response
+- **Sandboxed Execution** for supporting controlled interaction with generated solutions
+
+The resulting workflow can be viewed as:
+
+Software Development Task
+          │
+          ▼
+   Query Decomposition
+          │
+          ▼
+    Context Retrieval
+          │
+          ▼
+    Context Filtering
+          │
+          ├──────────────► Complexity Evaluation
+          │
+          ▼
+   Focused Task Context
+          │
+          ▼
+      Coding Agent
+          │
+          ▼
+   Generation / Execution
 
 ---
 
 # Future Directions
 
-Potential extensions include:
+The current framework provides a foundation for task-aware context selection in software-development agents. Future work can build directly on the existing pipeline:
 
-- Hybrid dense + lexical retrieval
-- Semantic code chunking
-- Cross-encoder reranking
-- Repository-level dependency graphs
-- Long-term conversational memory
-- GitHub-native repository ingestion
-- Retrieval-quality benchmarking
-- Agent trajectory evaluation
-- Latency and cost optimization
-- Multi-agent software-development workflows
-- Human-in-the-loop feedback
-- Improved observability and tracing
+- **Adaptive Context Selection** — dynamically determine how much retrieved context should be retained based on the task and its estimated complexity.
+
+- **Joint Retrieval and Complexity Reasoning** — use the complexity evaluator to influence retrieval depth, context selection, and downstream agent behavior rather than treating complexity as an independent signal.
+
+- **Iterative Retrieval** — allow the coding agent to request additional context when the initial retrieved information is insufficient for solving a development task.
+
+- **Repository-Aware Retrieval** — incorporate relationships between files, functions, classes, imports, and dependencies to improve retrieval for repository-level tasks.
+
+- **Feedback-Driven Context Filtering** — use successful and unsuccessful agent trajectories to continuously improve the context-filtering component.
+
+- **Multi-Step Agentic Planning** — extend the current workflow from task decomposition into explicit planning, execution, verification, and refinement stages.
+
+- **Execution-Aware Code Generation** — connect generated solutions with sandboxed execution and testing so that the agent can validate its output and iteratively correct errors.
+
+- **Task-Level Evaluation** — evaluate not only individual retrieval or filtering components, but the effect of context selection on end-to-end software-development performance.
+
+- **Efficiency Optimization** — study the trade-off between context quality, model inference cost, retrieval latency, and overall task-solving performance.
+
+- **Repository-Scale Benchmarking** — evaluate the framework across larger and more diverse software repositories and development tasks.
 
 ---
 
@@ -496,5 +518,8 @@ https://github.com/vansh-oberoi
 ---
 
 ## Keywords
+
+`Agentic AI` · `RAG` · `Retrieval-Augmented Generation` · `LLM` · `Coding Agents` · `Software Engineering` · `T5` · `Transformers` · `PyTorch` · `Context Retrieval` · `Context Filtering` · `Task Complexity` · `AI Agents` · `Machine Learning`
+---
 
 `Agentic AI` · `RAG` · `Retrieval-Augmented Generation` · `LLM` · `Coding Agents` · `Software Engineering` · `T5` · `Transformers` · `PyTorch` · `Context Retrieval` · `Context Filtering` · `Task Complexity` · `AI Agents` · `Machine Learning`
