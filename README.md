@@ -233,25 +233,43 @@ The repository contains the relevant experimental resources, reports, and evalua
 
 ---
 
-# Repository Structure
+## Repository Structure
 
 ```text
-.
-├── Me-QT5/
-│   ├── ...
-│   └── ...
-├── Dataset/
-│   └── ...
-├── Models/
-│   └── ...
-├── Report/
-│   └── ...
-├── Demo/
-│   └── ...
-└── README.md
-```
-
-> Directory names may vary depending on the current project distribution.
+Agentic_Framework_for_Software_Development/
+│
+├── 53_h3_pathway_endterm.pdf       # Project report / technical documentation
+├── dataset.zip                     # Dataset used for experiments
+├── fine_tuned_models.txt           # Fine-tuned model references and resources
+├── README.md                       # Project documentation
+├── working_demo.mp4                # Demonstration of the framework
+│
+└── Me-QT5/
+    │
+    ├── Dockerfile                  # Container configuration
+    ├── readme.md                   # Me-QT5-specific documentation
+    ├── run.sh                      # Framework execution script
+    ├── setup.sh                    # Environment setup script
+    │
+    └── Code/
+        ├── agent.py                # Core agent implementation
+        ├── agent_store.py          # Agent state / storage
+        ├── complexity_evaluator.py # Task complexity evaluation
+        ├── custom_generate.py      # Custom generation utilities
+        ├── database.py             # Database interface
+        ├── filter.py               # Context filtering
+        ├── hr_database.txt         # Supporting knowledge base
+        ├── llm_ui.py               # LLM user interface
+        ├── memory.py               # Agent memory
+        ├── prompts.py              # Prompt definitions
+        ├── query_decomposer.py     # Query/task decomposition
+        ├── rag-server.py           # RAG server
+        ├── ragclient.py            # RAG client
+        ├── Readme.md               # Code-level documentation
+        ├── requirements.txt        # Python dependencies
+        ├── sandbox.py              # Sandboxed execution
+        ├── variables.py            # Configuration variables
+        └── wrapper.py              # Framework integration wrapper
 
 ---
 
